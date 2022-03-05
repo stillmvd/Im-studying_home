@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index() {
         $post = (object) [
             'id' => '123',
-            'alias' => 'Tomy Cash',
+            'alias' => 'Tommy Cash',
             'description' => 'Работа по проведению косметических работ с питомцем',
             'category' => 'Косметика',
         ];
@@ -40,7 +40,7 @@ class PostController extends Controller
     public function show($post) {
         $post = (object) [
             'id' => '123',
-            'alias' => 'Tomy Cash',
+            'alias' => 'Tommy Cash',
             'description' => 'Работа по проведению косметических работ с питомцем',
             'category' => 'Косметика',
         ];
@@ -53,7 +53,7 @@ class PostController extends Controller
     public function edit($post) {
         $post = (object) [
             'id' => '123',
-            'alias' => 'Tomy Cash',
+            'alias' => 'Tommy Cash',
             'description' => 'Работа по проведению косметических работ с питомцем',
             'category' => 'Косметика',
         ];

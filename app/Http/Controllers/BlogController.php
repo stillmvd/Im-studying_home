@@ -9,9 +9,10 @@ class BlogController extends Controller
     public function index() {
         // Временный пост
         $post = (object) [
-            'id' => 'reply',
-            'title' => 'Заголовок заявки',
-            'content' => 'Большой большой текст заявки',
+            'id' => '123',
+            'alias' => 'Tommy Cash',
+            'description' => 'Работа по проведению косметических работ с питомцем',
+            'category' => 'Косметика',
         ];
         
         $posts = array_fill(0, 6, $post);
@@ -21,9 +22,10 @@ class BlogController extends Controller
     
     public function show() {
         $post = (object) [
-            'id' => 'reply',
-            'title' => 'Заголовок заявки',
-            'content' => 'Большой большой текст заявки',
+            'id' => '123',
+            'alias' => 'Tommy Cash',
+            'description' => 'Работа по проведению косметических работ с питомцем',
+            'category' => 'Косметика',
         ];
 
         return view('blog.show', compact('post'));

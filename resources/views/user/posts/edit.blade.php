@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page.title', 'Редактировать заявку', $post->id)
+@section('page.title', 'Редактировать заявку', '$post->id')
 
 @section('main.content')
 
