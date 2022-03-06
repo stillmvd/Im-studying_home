@@ -12,11 +12,9 @@
             <x-card.title>
                 {{ __('Заявки наших клиентов') }}
             </x-card.title>
-            <x-slot name="right">
-                <x-button href="{{ route('user.posts.create') }}">
-                    {{ __('Оставить заявку') }}
-                </x-button>
-            </x-slot>
+            <x-button href="{{ route('user.posts.create') }}">
+                {{ __('Оставить заявку') }}
+            </x-button>
         </x-card.header>
         
         @if (empty($posts))

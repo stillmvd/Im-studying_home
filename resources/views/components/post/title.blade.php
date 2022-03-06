@@ -1,5 +1,5 @@
-<a {{ $attributes->merge([
-    'class' => 'post-title',
-]) }}>
+<a {{ $attributes->class(
+    'post-title'
+) }}>
     {{ $slot }}
 </a>

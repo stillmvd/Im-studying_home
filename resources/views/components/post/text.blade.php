@@ -1,5 +1,5 @@
-<p {{ $attributes->merge([
-    'class' => 'post-text'
-]) }}>
+<p {{ $attributes->class(
+    'post-text'
+) }}>
     {{ $slot }}
 </p>

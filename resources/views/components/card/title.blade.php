@@ -1,5 +1,5 @@
-<h1 {{ $attributes->merge([
-    'class' => 'card-title',
-]) }}>
+<h1 {{ $attributes->class(
+    'card-title'
+) }}>
     {{ $slot }}
 </h1>

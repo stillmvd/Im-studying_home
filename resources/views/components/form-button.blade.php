@@ -1,5 +1,6 @@
-<button {{ $attributes->merge([
-    'class' => 'form-button',
+<button {{ $attributes->class(
+    'form-button'
+)->merge([
     'type' => 'button',
 ]) }}>
     {{ $slot }}

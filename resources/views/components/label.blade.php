@@ -1,5 +1,5 @@
-<label {{ $attributes->merge([
-    'class' => 'input-label',
-]) }}>
+<label {{ $attributes->class(
+    'input-label'
+) }}>
     {{ $slot }}
 </label>

@@ -1,9 +1,5 @@
-<div {{ $attributes->merge([
-    'class' => 'card-header',
-]) }}>
+<div {{ $attributes->class(
+    'card-header'
+) }}>
     {{ $slot }}
-
-    @isset($right)
-        {{ $right }}
-    @endisset
 </div>

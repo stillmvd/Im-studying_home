@@ -9,15 +9,13 @@
             <x-post.title>
                 {{ $post->alias }}
             </x-post.title>
-            <x-slot name="right">
-                <x-move-back href="{{ route('blog') }}">
-                    Назад
-                </x-move-back>
-            </x-slot>
+            <x-move-back href="{{ route('blog') }}">
+                Назад
+            </x-move-back>
         </x-card.header>
         
         <x-post.date>
-            {{ now()->format('d.m.y H.i.s') }}
+            {{ now()->format('d.M.y H:i') }}
         </x-post.date>
         <x-post.text>
             {!! $post->description !!}

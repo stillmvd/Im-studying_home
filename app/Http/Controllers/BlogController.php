@@ -16,11 +16,6 @@ class BlogController extends Controller
             'category_id' => 1,
         ];
 
-        $search = $request->input('search');
-        $category_id = $request->input('category_id');
-        
-        $posts = array_fill(0, 6, $post);
-
         $categories = [
             null => __('Выберите категорию'),
             1 => 'Косметика',
@@ -28,6 +23,11 @@ class BlogController extends Controller
         ];
 
         // Фильтрация заявок
+        $posts = array_fill(0, 6, $post);
+
+        $search = $request->input('search');
+        $category_id = $request->input('category_id');
+
         $posts = array_filter($posts, function($post) use($search, $category_id) {
             if($search && ! str_contains(strtolower($post->alias), strtolower($search))) {
                 return false;
@@ -47,7 +47,7 @@ class BlogController extends Controller
         $post = (object) [
             'id' => '123',
             'alias' => 'Tommy Cash',
-            'description' => 'Работа по проведению косметических работ с питомцем',
+            'description' => 'Работа по проведению <b>косметических работ</b> с питомцем',
             'category' => 'Косметика',
             'category_id' => 1,
         ];
