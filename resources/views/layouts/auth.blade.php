@@ -3,9 +3,7 @@
 @section('content')
     <main class="no-grow">
         <x-container>
-            <x-card.body>
-                @yield('auth.content')
-            </x-card.body>
+            @yield('auth.content')
         </x-container>
     </main>
 @endsection

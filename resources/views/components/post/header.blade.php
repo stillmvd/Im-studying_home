@@ -1,5 +1,5 @@
 <div {{ $attributes->class([
-    'post'
+    'post-header'
 ]) }}>
     {{ $slot }}
 </div>

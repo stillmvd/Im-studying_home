@@ -63,7 +63,7 @@ class PostController extends Controller
 
     public function update(Request $request) {
         $data = $request->all();
-
+        
         $alias = $request->input('alias');
         $description = $request->input('description');
         $category = $request->input('category');

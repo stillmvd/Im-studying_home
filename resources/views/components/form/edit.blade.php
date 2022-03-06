@@ -1,4 +1,4 @@
-<x-form.base action="{{route ('user.posts.store') }}" method="PUT">
+<x-form.base class="form" method="put" action="{{ route('user.posts.update', $post->id) }}">
     <x-align-container>
         <x-label>{{ __('Кличка вашего питомца') }}</x-label>
         <x-input name="alias" id="alias" value="{{ $post->alias }}" autofocus />

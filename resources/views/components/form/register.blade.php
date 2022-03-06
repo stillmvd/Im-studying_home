@@ -1,4 +1,4 @@
-<x-form.base action="{{route ('register.store') }}" method="POST">
+<x-form.base class="form" method="post" action="{{route ('register.store') }}">
     <x-align-container>
         <x-label for="identity">{{ __('ФИО') }}</x-label>
         <x-input type="text" name="identity" id="identity" autofocus />

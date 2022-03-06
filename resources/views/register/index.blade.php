@@ -4,6 +4,8 @@
 
 @section('auth.content')
 
-    <x-register.card />
+    <x-card.body>
+        <x-register.card />
+    </x-card.body>
     
 @endsection
