@@ -1,8 +1,8 @@
 <div class="agreement">
     <input {{ $attributes->merge([
-        'type' => 'checkbox',
-        'value' => 1,
         'id' => 'agreement',
+        'type' => 'checkbox',
+        'checked' => !! old($attributes->get('name')),
     ]) }} onclick="changeActivity()">
     
     <label for="agreement">

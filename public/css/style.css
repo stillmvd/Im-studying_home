@@ -95,8 +95,8 @@ main{
 }
 
 .agreement{
-    margin: 2% 0;
     display: flex;
+    margin-top: 2%;
     align-items: center;
     flex-direction: row;
 }
@@ -123,9 +123,11 @@ li{
 }
 
 .input-label{
-    margin-top: 1%;
+    width: 340px;
     user-select: none;
     white-space: nowrap;
+    margin: 1.6% 0 0.4% 0;
+    color: rgb(100, 100, 100);
     font-size: calc(16px + 1 * (100vw / 1920));
 }
 
@@ -147,6 +149,11 @@ li{
     user-select: none;
     white-space: nowrap;
     font-size: calc(16px + 1 * (100vw / 1920));
+}
+
+.alert-message{
+    color: #f03d33;
+    font-size: calc(8px + 6 * (100vw / 1920));
 }
 
 /* --------------- картинки --------------- */
@@ -221,7 +228,7 @@ li{
 
 /* --------------- инпуты --------------- */
 
-.form-input, .select, .button{
+.form-input, .select, .button, .file-upload{
     box-sizing:content-box;
     -ms-box-sizing:content-box;
     -moz-box-sizing:content-box;
@@ -230,7 +237,6 @@ li{
 
 .form-input{
     width: 360px;
-    margin: 1% 0;
     padding: 0.8% 1%;
     font-weight: lighter;
     color: rgb(0, 0, 0);
@@ -245,7 +251,6 @@ li{
 
 .select{
     width: 360px;
-    margin: 1% 0;
     padding: 0.8% 1%;
     font-weight: lighter;
     color: rgb(0, 0, 0);
@@ -253,29 +258,31 @@ li{
     font-size: calc(20px + 1 * (100vw / 1920));
 }
 
-.file-upload:focus{
-    border: none;
-}
-
 .agreement input{
     width: auto;
     margin: 0 2% 0 0;
 }
 
+.file-upload-place{
+    margin-bottom: 2%;
+}
+
 .file-upload{
     padding: 0;
-    width: 100%;
+    width: 360px;
     border: none;
-    margin: 2% 0;
     border-radius: 0;
     background-color: transparent;
     font-size: calc(12px + 4 * (100vw / 1920));
 }
 
+.file-upload:focus{
+    border: none;
+}
+
 .text-area{
     width: 360px;
     resize: none;
-    margin: 1% 0;
     padding: 0.8% 1%;
     font-weight: lighter;
     color: rgb(0, 0, 0);

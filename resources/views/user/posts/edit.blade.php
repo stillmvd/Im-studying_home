@@ -17,7 +17,11 @@
             </x-slot>
         </x-card.header>
     
-        <x-form.edit :post="$post" />
+        <x-form.edit :post="$post">
+            <x-form-button type="submit">
+                {{ __('Изменить') }}
+            </x-form-button>
+        </x-form.edit>
     </x-card.body>
     
 @endsection

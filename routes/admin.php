@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::view('/', 'admin.index');
     
     Route::get('posts', [PostController::class, 'index'])->name('admin.posts');

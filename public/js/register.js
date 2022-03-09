@@ -1,6 +1,6 @@
-function changeActivity () {
+function changeActivity() {
     let checkbox = document.getElementById('agreement');
-    if (agreement.checked) {
+    if (checkbox.checked) {
         document.getElementById('store').classList.remove('disabled');
         document.getElementById('store').removeAttribute('disabled');
     } else {

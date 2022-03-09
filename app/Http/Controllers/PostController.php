@@ -25,16 +25,16 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
-        $data = $request->all();
+        $validated = validate($request->all(), [
+            'alias' => ['required', 'string', 'max:50'],
+            'description' => ['required', 'string', 'max:200'],
+            'category' => ['required', 'string'],
+            'photo' => ['required', 'file', 'image', 'max:8000'],
+        ]);
+        
+        dd($validated);
 
-        $alias = $request->input('alias');
-        $description = $request->input('description');
-        $category = $request->input('category');
-        $photo = $request->file('photo');
-
-        dd($alias, $description, $category, $photo);
-
-        return 'Запрос создания поста';
+        return redirect()->route('user.posts.show', 123);
     }
     
     public function show($post) {
@@ -61,18 +61,20 @@ class PostController extends Controller
         return view('user.posts.edit', compact('post'));
     }
 
-    public function update(Request $request) {
-        $data = $request->all();
-        
-        $alias = $request->input('alias');
-        $description = $request->input('description');
-        $category = $request->input('category');
-        $photo = $request->file('photo');
+    public function update(Request $request, $post) {
+        $validated = validate($request->all(), [
+            'alias' => ['required', 'string', 'max:50'],
+            'description' => ['required', 'string', 'max:200'],
+            'category' => ['required'],
+            'photo' => ['nullable', 'file', 'image', 'max:8000'],
+        ]);
 
-        dd($alias, $description, $category, $photo);
+        dd($validated);
+
+        return redirect()->back();
     }
-
-    public function delete() {
-        return 'Запрос удаления поста';
+    
+    public function delete($post) {
+        return redirect()->route('user.posts');
     }
 }

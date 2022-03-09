@@ -11,15 +11,14 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request) {
-        $data = $request->all();
+        $validated = validate($request->all(), [
+            'identity' => ['required', 'string', 'max:30'],
+            'login' => ['required', 'string', 'max:30'],
+            'email' => ['required', 'string', 'max:30', 'email'],
+            'password' => ['required', 'string', 'confirmed', 'min:6', 'max:40'],
+            'agreement' => ['required'],
+        ]);
 
-        $identity = $request->input('identity');
-        $login = $request->input('login');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $passwordconfirmation = $request->input('password-confirmation');
-        $agreement = $request->boolean('agreement');
-
-        dd($identity, $login, $email, $password, $passwordconfirmation, $agreement);
+        return redirect()->route('user');
     }
 }

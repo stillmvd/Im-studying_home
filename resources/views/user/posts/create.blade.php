@@ -17,7 +17,11 @@
             </x-slot>
         </x-card.header>
     
-        <x-form.create />
+        <x-form.create>
+            <x-form-button type="submit">
+                {{ __('Отправить') }}
+            </x-form-button>
+        </x-form.create>
     </x-card.body>
     
 @endsection

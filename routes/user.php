@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
-Route::prefix('user')->group(function () {
-    Route::view('/', 'user.index');
+Route::prefix('user')->middleware('auth')->group(function () {
+    Route::view('/', 'user.index')->name('user');
     
     Route::get('posts', [PostController::class, 'index'])->name('user.posts');
     Route::get('posts/create', [PostController::class, 'create'])->name('user.posts.create');

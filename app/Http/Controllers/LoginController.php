@@ -11,12 +11,11 @@ class LoginController extends Controller
     }
 
     public function store(Request $request) {
-        $data = $request->all();
-
-        $login = $request->input('login');
-        $password = $request->input('password');
-        $remember = $request->boolean('remember');
-
-        dd($login, $password);
+        $validated = validate($request->all(), [
+            'login' => ['required', 'string', 'max:30'],
+            'password' => ['required', 'min:6', 'max:40'],
+        ]);
+        
+        return redirect()->route('user');
     }
 }
