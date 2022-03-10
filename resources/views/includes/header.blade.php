@@ -15,18 +15,30 @@
                 </li>
             </ul>
             
+            @guest
+                <ul class="navigation-right">
+                    <li>
+                        <a href="{{ route('register') }}" class="link {{ Route::is('register') ? 'active-link' : '' }}">
+                            {{ __('Регистрация') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('login') }}" class="link {{ Route::is('login') ? 'active-link' : '' }}">
+                            {{ __('Вход') }}
+                        </a>
+                    </li>
+                </ul>
+            @endguest
+
+            @auth
             <ul class="navigation-right">
                 <li>
-                    <a href="{{ route('register') }}" class="link {{ Route::is('register') ? 'active-link' : '' }}">
-                        {{ __('Регистрация') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('login') }}" class="link {{ Route::is('login') ? 'active-link' : '' }}">
-                        {{ __('Вход') }}
+                    <a href="{{ route('logout') }}" class="link">
+                        {{ __('Выход') }}
                     </a>
                 </li>
             </ul>
+            @endauth
 
         </div>
     </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TestController;
 
 Route::view('/', 'home.index')->name('home');
+Route::redirect('/home', '/');
 
 Route::middleware('guest')->group(function() {
     Route::get('register', [RegisterController::class, 'index'])->name('register');
@@ -16,6 +17,8 @@ Route::middleware('guest')->group(function() {
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login', [LoginController::class, 'store'])->name('login.store');
 });
+
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('blog', [BlogController::class, 'index'])->name('blog');
 Route::get('blog/{post}', [BlogController::class, 'show'])->name('blog.show');
