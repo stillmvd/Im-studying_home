@@ -26,7 +26,7 @@ class RegisterController extends Controller
 
         if($user = User::create($validated)) {
             auth()->login($user);
-            return redirect('user');
+            return redirect('user')->with('success', 'Регистрация прошла успешно');
         }
         
         return redirect()->back()->withErrors([
