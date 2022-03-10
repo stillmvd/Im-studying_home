@@ -38,26 +38,27 @@ header{
 }
 
 .navigation-left{
-    width: 50%;
     display: flex;
+    align-items: center;
     justify-content: flex-start;
 }
 
 .navigation-right{
-    width: 50%;
     display: flex;
+    align-items: center;
     justify-content: flex-end;
 }
 
 .navigation-left li{
     display: flex;
-    margin-right: 10%;
+    margin-right: 5%;
+    white-space: nowrap;
     justify-content: flex-start;
 }
 
 .navigation-right li{
     display: flex;
-    margin-left: 10%;
+    margin-left: 20%;
     justify-content: flex-end;
 }
 
@@ -158,7 +159,14 @@ li{
 
 /* --------------- картинки --------------- */
 
+.logo{
+    width: 30%;
+    margin-right: 5%;
+}
 
+.logo img{
+    width: 100%;
+}
 
 /* --------------- пост --------------- */
 
@@ -295,6 +303,10 @@ li{
     border: solid 1px rgb(77, 77, 77);
 }
 
+.invalid-field{
+    border: solid 1px #f03d33;
+}
+
 /* --------------- кнопки --------------- */
 
 .form-button{
@@ -415,18 +427,28 @@ li{
         padding: 6% 0;
     }
 
-    .navigation-left, .navigation-right{
+    .navigation-left{
         flex-direction: column;
+        align-items: flex-start;
     }
 
-    .navigation-left li:first-child{
-        margin-bottom: 12%;
+    .logo{
+        width: 70%;
+    }
+
+    .navigation-right{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .navigation-left li{
+        margin-top: 12%;
     }
 
     .navigation-right li:first-child{
         margin-bottom: 12%;
     }
-
+    
     .post{
         width: 100%;
         padding: 4% 6%;

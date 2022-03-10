@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    
-    public function index() {
+    public function index(Request $request) {
         $post = (object) [
             'id' => '123',
             'alias' => 'Tommy Cash',

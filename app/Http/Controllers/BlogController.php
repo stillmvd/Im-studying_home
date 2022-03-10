@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function index(Request $request) {
-        // Временный пост
         $post = (object) [
             'id' => '123',
             'alias' => 'Tommy Cash',

@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function index() {
-        if(auth()->check()) {
-            return redirect('user');
-        }
-
         return view('login.index');
     }
 
@@ -23,7 +19,7 @@ class LoginController extends Controller
         ]);
 
         if(auth()->attempt($validated)) {
-            return redirect('user')->with('success', 'Теперь вы в аккаунте');
+            return redirect()->intended('/')->with('success', 'Теперь вы в аккаунте');
         }
 
         return redirect()->back()->withErrors([

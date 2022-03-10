@@ -1,3 +1,5 @@
+@props(['mame' => ''])
+
 <input {{ $attributes->class(
     'form-input',
 )->merge([

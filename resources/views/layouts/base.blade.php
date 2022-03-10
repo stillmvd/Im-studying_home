@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('page.title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="icon" href="favico.ico" type="image/x-icon">
 </head>
 <body>
     @include('includes.header')

@@ -8,10 +8,6 @@ use App\Models\User;
 class RegisterController extends Controller
 {
     public function index() {
-        if(auth()->check()) {
-            return redirect('user');
-        }
-
         return view('register.index');
     }
 
@@ -26,7 +22,7 @@ class RegisterController extends Controller
 
         if($user = User::create($validated)) {
             auth()->login($user);
-            return redirect('user')->with('success', 'Регистрация прошла успешно');
+            return redirect('/')->with('success', 'Регистрация прошла успешно');
         }
         
         return redirect()->back()->withErrors([
