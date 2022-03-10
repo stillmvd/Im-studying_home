@@ -14,7 +14,7 @@ class BlogController extends Controller
             'category' => 'Косметика',
             'category_id' => 1,
         ];
-
+        
         $categories = [
             null => __('Выберите категорию'),
             1 => 'Косметика',

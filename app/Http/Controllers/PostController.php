@@ -28,7 +28,7 @@ class PostController extends Controller
             'alias' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:200'],
             'category' => ['required', 'string'],
-            'photo' => ['required', 'file', 'image', 'max:8000'],
+            'photo' => ['nullable', 'file', 'image', 'max:8000'],
         ]);
         
         dd($validated);
