@@ -6,7 +6,7 @@
                     <img src="{{ asset('img/logo.png') }}" alt="logo">
                 </a>
                 <li>
-                    <a href="{{ route('user.posts') }}" class="link {{ Route::is('user*') ? 'active-link' : '' }}">
+                    <a href="{{ route('user.posts') }}" class="link {{ Route::is('user.posts*') ? 'active-link' : '' }}">
                         {{ __('Мои заявки') }}
                     </a>
                 </li>

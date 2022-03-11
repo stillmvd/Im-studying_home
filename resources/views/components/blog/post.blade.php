@@ -9,6 +9,6 @@
     </x-post.header>
 
     <x-post.date>
-        {{ now()->format('d.M.y H:i') }}
+        {{ now()->format('d.M H:i') }}
     </x-post.date>
 </x-post.card>

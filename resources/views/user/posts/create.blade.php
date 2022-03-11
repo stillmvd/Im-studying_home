@@ -17,7 +17,7 @@
             </x-slot>
         </x-card.header>
     
-        <x-form.create>
+        <x-form.create :categories="$categories">
             <x-form-button type="submit">
                 {{ __('Отправить') }}
             </x-form-button>

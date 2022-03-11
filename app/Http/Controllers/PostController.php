@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -20,20 +22,33 @@ class PostController extends Controller
     }
 
     public function create() {
-        return view('user.posts.create');
+        $categories = [
+            1001 => 'Стрижка',
+            1002 => 'Глажка',
+            1003 => 'Уход',
+            1004 => 'Маникюр',
+            1005 => 'Клининг',
+        ];
+
+        return view('user.posts.create', compact('categories'));
     }
 
     public function store(Request $request) {
         $validated = validate($request->all(), [
             'alias' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:200'],
-            'category' => ['required', 'string'],
+            'category' => ['required'],
             'photo' => ['nullable', 'file', 'image', 'max:8000'],
         ]);
         
-        dd($validated);
-
-        return redirect()->route('user.posts.show', 123);
+        DB::table('posts')->insert([
+            'user_id' => auth()->id(),
+            'alias' => $validated['alias'],
+            'description' => $validated['description'],
+            'category' => $validated['category_id'],
+        ]);
+        
+        return redirect()->route('user.posts');
     }
     
     public function show($post) {

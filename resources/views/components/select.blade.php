@@ -1,4 +1,4 @@
-@props(['value' => request('category_id'), 'options' => []])
+@props([ 'value' => request('category_id'), 'options' => [] ])
 
 <select {{ $attributes }}>
     {{ $slot }}
@@ -8,4 +8,5 @@
             {{ $_value }}
         </option>
     @endforeach
+
 </select>

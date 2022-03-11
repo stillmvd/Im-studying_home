@@ -11,8 +11,7 @@
     </x-align-container>
     <x-align-container>
         <x-label>{{ __('Категория') }}</x-label>
-        <x-input type="text" name="category" id="category" />
-        <x-error name="category" />
+        <x-select name="category" class="select" :options="$categories" />
     </x-align-container>
     <x-align-container class="file-upload-place">
         <x-label for="photo">{{ __('Фото питомца') }}</x-label>
