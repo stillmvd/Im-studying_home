@@ -2,33 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use App\Models\User;
 
 class PostController extends Controller
 {
     public function index(Request $request) {
-        $post = (object) [
-            'id' => '123',
-            'alias' => 'Tommy Cash',
-            'description' => 'Работа по проведению косметических работ с питомцем',
-            'category' => 'Косметика',
-        ];
-        
-        $posts = array_fill(0, 6, $post);
+        $posts = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6);
 
         return view('user.posts.index', compact('posts'));
     }
 
     public function create() {
-        $categories = [
-            1001 => 'Стрижка',
-            1002 => 'Глажка',
-            1003 => 'Уход',
-            1004 => 'Маникюр',
-            1005 => 'Клининг',
-        ];
+        $data = DB::table('categories')->get()->all();
+        
+        $categories = [];
+        foreach($data as $key => $category) {
+            $categories = Arr::add($categories, $category->id, $category->name);
+        }
 
         return view('user.posts.create', compact('categories'));
     }
@@ -41,14 +34,15 @@ class PostController extends Controller
             'photo' => ['nullable', 'file', 'image', 'max:8000'],
         ]);
         
-        DB::table('posts')->insert([
+        $id = DB::table('posts')->insertGetId([
             'user_id' => auth()->id(),
             'alias' => $validated['alias'],
             'description' => $validated['description'],
-            'category' => $validated['category_id'],
+            'category' => $validated['category'],
+            'category_id' => DB::table('categories')->where('name', $validated['category'])->value('id'),
         ]);
         
-        return redirect()->route('user.posts');
+        return redirect()->route('user.posts.show', $id);
     }
     
     public function show($post) {

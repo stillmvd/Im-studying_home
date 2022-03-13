@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <main class="no-grow">
+    <main>
         <x-container>
             @yield('auth.content')
         </x-container>

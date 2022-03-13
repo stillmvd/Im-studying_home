@@ -1,6 +1,6 @@
 <x-post.card>
     <x-post.header>
-        <x-post.title href="{{ route('blog.show', $post->id) }}">
+        <x-post.title href="{{ route('user.posts.show', $post->id) }}">
             {{ $post->alias }}
         </x-post.title>
         <div class="category-place">

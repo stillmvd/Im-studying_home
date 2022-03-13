@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page.title', $post->id)
+@section('page.title', $post->alias)
 
 @section('main.content')
 
@@ -12,6 +12,9 @@
             <x-move-back href="{{ route('blog') }}">
                 Назад
             </x-move-back>
+            {{-- @if ()
+                
+            @endif --}}
         </x-card.header>
         
         <x-post.date>

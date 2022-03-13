@@ -25,10 +25,14 @@
             @else
             <x-posts-container>
                 @foreach ($posts as $post)
-                    <x-blog.post :post="$post" />
+                    <x-blog.post :post=$post/>
                 @endforeach
             </x-posts-container>
         @endif
+        
+        <div class="pagination">
+            {{ $posts->links('vendor.pagination.default') }}
+        </div>
     </x-card.body>
 
 @endsection

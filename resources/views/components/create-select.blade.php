@@ -5,12 +5,12 @@
 ) }}>
     {{ $slot }}
 
-    <option value="{{ null }}">
-        {{ __('Все категории') }}
+    <option value="{{ null }}" selected disabled>
+        {{ __('Выберите категорию') }}
     </option>
 
     @foreach ($options as $key => $_value)
-        <option value="{{ $key }}" {{ ($key == $value) ? 'selected' : '' }}>
+        <option value="{{ $_value }}">
             {{ $_value }}
         </option>
     @endforeach
