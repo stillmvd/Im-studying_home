@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page.title', 'Страница заявок')
+@section('page.title', 'Все заявки')
 
 @section('main.content')
     <x-card.body>
@@ -31,9 +31,11 @@
                     @endforeach
                 </x-posts-container>
                 
-                <div class="pagination">
-                    {{ $paginated->links('vendor.pagination.default') }}
-                </div>
+                @if ($number > 6)
+                    <div class="pagination">
+                        {{ $paginated->links('vendor.pagination.default') }}
+                    </div>
+                @endif
         @endif
         
     </x-card.body>

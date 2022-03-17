@@ -15,7 +15,8 @@ class PostController extends Controller
     public function index() {
         $posts = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6)->items();
         $paginated = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6);
-        return view('user.posts.index', compact('posts', 'paginated'));
+        $number = count(DB::table('posts')->where('user_id', '=', auth()->id())->get()->all());
+        return view('user.posts.index', compact('posts', 'paginated', 'number'));
     }
 // ----------------
     public function create() {
@@ -31,8 +32,9 @@ class PostController extends Controller
 // ----------------
     public function show() {
         $posts = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6)->items();
+        $number = count(DB::table('posts')->where('user_id', '=', auth()->id())->get()->all());
         $paginated = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6);
-        return view('user.posts.show', compact('posts', 'paginated'));
+        return view('user.posts.show', compact('posts', 'paginated', 'number'));
     }
 // ----------------
     public function edit(Post $post) {

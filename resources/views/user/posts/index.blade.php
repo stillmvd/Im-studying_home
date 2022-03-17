@@ -31,10 +31,11 @@
                     <x-post :post=$post/>
                 @endforeach
             </x-posts-container>
-
-            <div class="pagination">
-                {{ $paginated->links('vendor.pagination.default') }}
-            </div>
+            @if ($number > 6)
+                <div class="pagination">
+                    {{ $paginated->links('vendor.pagination.default') }}
+                </div>
+            @endif
         @endif
 
     </x-card.body>

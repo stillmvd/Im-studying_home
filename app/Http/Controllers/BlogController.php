@@ -20,6 +20,8 @@ class BlogController extends Controller
             $categories = Arr::add($categories, $category->id, $category->name);
         }
 
+        $number = count(DB::table('posts')->get()->all());
+
         // Фильтрация заявок
         $search = $request->input('search');
         $category_id = $request->input('category_id');
@@ -34,7 +36,7 @@ class BlogController extends Controller
             return true;
         });
        
-        return view('blog.index', compact('categories', 'posts', 'paginated'));
+        return view('blog.index', compact('categories', 'posts', 'paginated', 'number'));
     }
     
     public function show(Post $post) {

@@ -105,15 +105,10 @@ main{
 }
 
 .card{
+    padding: 2%;
     margin-bottom: 3%;
     border-radius: 20px;
-    border-radius: 20px;
-    padding: 2% 2% 2% 2%;
     background-color: #ffffff;
-}
-
-.filter-form .card-header{
-    padding: 0;
 }
 
 .card-header{
@@ -126,13 +121,6 @@ main{
 .filter-section{
     width: 60%;
     display: flex;
-    flex-direction: row;
-}
-
-.agreement{
-    display: flex;
-    margin-top: 2%;
-    align-items: center;
     flex-direction: row;
 }
 
@@ -191,7 +179,7 @@ main{
 .select{
     width: 360px;
     padding: 0.8% 1%;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: lighter;
     color: rgb(0, 0, 0);
     border: solid 1px rgb(173, 173, 173);
@@ -201,7 +189,7 @@ main{
 .form-input{
     width: 360px;
     padding: 0.8% 1%;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: lighter;
     color: rgb(0, 0, 0);
     border: solid 1px rgb(173, 173, 173);
@@ -216,7 +204,7 @@ main{
 .filter-select{
     padding: 0 1.6%;
     appearance: none;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: calc(14px + 4 * (100vw / 1920));
 }
 
@@ -251,11 +239,18 @@ main{
     border: none;
 }
 
+.agreement{
+    display: flex;
+    margin-top: 2%;
+    align-items: center;
+    flex-direction: row;
+}
+
 .text-area{
     width: 360px;
     resize: none;
     padding: 0.8% 1%;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: lighter;
     color: rgb(0, 0, 0);
     border: solid 1px rgb(173, 173, 173);
@@ -307,21 +302,21 @@ li{
 /* --------------- посты --------------- */
 
 .posts-container{
-    gap: 16% 2%;
     display: grid;
+    gap: 1.4em 1.4em;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .post{
     padding: 4%;
     position: relative;
-    border-radius: 12px;
+    border-radius: 10px;
     background-color: rgb(240, 240, 240);
 }
 
 .blog-post{
     padding: 4%;
-    border-radius: 12px;
+    border-radius: 10px;
     background-color: rgb(240, 240, 240);
 }
 
@@ -341,9 +336,9 @@ li{
 }
 
 .bigsep{
-    width: 70%;
+    width: 100%;
     opacity: 40%;
-    margin: 3% auto;
+    margin: 2% 0;
 }
 
 .category{
@@ -365,7 +360,7 @@ li{
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin: 5% auto 0 auto;
+    margin: 2% auto 0 auto;
     justify-content: center;
 }
 
@@ -380,7 +375,7 @@ li{
     border-radius: 100px;
     transform: scale(1.4);
     justify-content: center;
-    background-color: #f03d33;
+    background-color: #98b8ff;
 }
 
 .inactive-page{
@@ -393,7 +388,7 @@ li{
     align-items: center;
     border-radius: 100px;
     justify-content: center;
-    background-color: #ffb5b1;
+    background-color: #c2d5ff;
 }
 
 .delete-button{
@@ -433,7 +428,7 @@ li{
     padding: 1% 5%;
     cursor: pointer;
     position: absolute;
-    border-radius: 12px;
+    border-radius: 10px;
     transition: .2s ease;
     background-color: #98b8ff;
     border: solid 1px transparent;
@@ -450,7 +445,7 @@ li{
     color: white;
     cursor: pointer;
     padding: 10px 20px;
-    border-radius: 12px;
+    border-radius: 10px;
     transition: .2s ease;
     background-color: #98b8ff;
     font-size: calc(14px + 4 * (100vw / 1920));
@@ -518,7 +513,7 @@ li{
 
     .form-input, .text-area, .select, .filter-select{
         width: 100%;
-        border-radius: 12px;
+        border-radius: 10px;
     }
 
     .file-upload{
@@ -567,7 +562,7 @@ li{
     .post{
         width: 100%;
         padding: 4% 4%;
-        border-radius: 12px;
+        border-radius: 10px;
     }
 
     .post:nth-child(-n+6){
@@ -642,7 +637,7 @@ li{
 
     .post{
         padding: 4% 6%;
-        border-radius: 12px;
+        border-radius: 10px;
         background-color: rgb(240, 240, 240);
     }
 }

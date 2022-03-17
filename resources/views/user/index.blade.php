@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page.title', 'Главная страница')
+@section('page.title', 'Профиль')
 
 @section('main.content')
     <x-card.body>
