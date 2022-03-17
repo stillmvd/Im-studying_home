@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use App\Models\Post;
 
 class BlogController extends Controller
 {
     public function index(Request $request) {
 
-        $posts = DB::table('posts')->paginate(6);
+        $posts = DB::table('posts')->paginate(6)->items();
+        $paginated = DB::table('posts')->paginate(6);
         $data = DB::table('categories')->get()->all();
 
         $categories = [];
@@ -22,29 +24,20 @@ class BlogController extends Controller
         $search = $request->input('search');
         $category_id = $request->input('category_id');
 
-        // $posts = array_filter($posts, function($post) use($search, $category_id) {
-        //     if($search && ! str_contains(strtolower($post->alias), strtolower($search))) {
-        //         return false;
-        //     }
-        //     if($category_id && $post->category_id != $category_id) {
-        //         return false;
-        //     }
-        //     return true;
-        // });
+        $posts = array_filter($posts, function($post) use($search, $category_id) {
+            if($search && ! str_contains(strtolower($post->alias), strtolower($search))) {
+                return false;
+            }
+            if($category_id && $post->category_id != $category_id) {
+                return false;
+            }
+            return true;
+        });
        
-        return view('blog.index', compact('categories', 'posts'));
+        return view('blog.index', compact('categories', 'posts', 'paginated'));
     }
     
-    public function show() {
-
-
-        $post = (object) [
-            'id' => '123',
-            'alias' => 'Tommy Cash',
-            'description' => 'Работа по проведению косметических работ с питомцем',
-            'category' => 'Косметика',
-        ];
-
+    public function show(Post $post) {
         return view('blog.show', compact('post'));
     }
 }

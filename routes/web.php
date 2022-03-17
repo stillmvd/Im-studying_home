@@ -34,7 +34,8 @@ Route::prefix('user')->middleware('auth')->group(function () {
     Route::get('posts/{post}', [PostController::class, 'show'])->name('user.posts.show');
     Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('user.posts.edit');
     Route::put('posts/{post}', [PostController::class, 'update'])->name('user.posts.update');
-    Route::delete('posts/{post}', [PostController::class, 'delete'])->name('user.posts.delete');
+    Route::get('posts/delete', [PostController::class, 'deletePage'])->name('user.posts.delete');
+    Route::delete('posts/delete/{post}', [PostController::class, 'destroy'])->name('user.posts.destroy');
 });
 
 // Админ
@@ -48,5 +49,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('posts/{post}', [PostController::class, 'show'])->name('admin.posts.show');
     Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
     Route::put('posts/{post}', [PostController::class, 'update'])->name('admin.posts.update');
-    Route::delete('posts', [PostController::class, 'delete'])->name('admin.posts.delete');
+    Route::get('posts/delete', [PostController::class, 'deletePage'])->name('user.posts.delete');
 });

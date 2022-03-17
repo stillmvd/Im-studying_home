@@ -12,9 +12,11 @@
             <x-card.title>
                 {{ __('Заявки наших клиентов') }}
             </x-card.title>
-            <x-button href="{{ route('user.posts.create') }}">
-                {{ __('Оставить заявку') }}
-            </x-button>
+            <div class="right-section">
+                <x-button href="{{ route('user.posts.create') }}">
+                    {{ __('Оставить заявку') }}
+                </x-button>
+            </div>
         </x-card.header>
         
         @if (empty($posts))
@@ -23,16 +25,17 @@
             </x-card.subtitle>
     
             @else
-            <x-posts-container>
-                @foreach ($posts as $post)
-                    <x-blog.post :post=$post/>
-                @endforeach
-            </x-posts-container>
+                <x-posts-container>
+                    @foreach ($posts as $post)
+                        <x-blog.post :post=$post/>
+                    @endforeach
+                </x-posts-container>
+                
+                <div class="pagination">
+                    {{ $paginated->links('vendor.pagination.default') }}
+                </div>
         @endif
         
-        <div class="pagination">
-            {{ $posts->links('vendor.pagination.default') }}
-        </div>
     </x-card.body>
 
 @endsection

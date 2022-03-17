@@ -6,15 +6,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\User;
+use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index(Request $request) {
-        $posts = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6);
 
-        return view('user.posts.index', compact('posts'));
+    // ---------------- метод GET
+    public function index() {
+        $posts = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6)->items();
+        $paginated = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6);
+        return view('user.posts.index', compact('posts', 'paginated'));
     }
-
+// ----------------
     public function create() {
         $data = DB::table('categories')->get()->all();
         
@@ -25,7 +28,18 @@ class PostController extends Controller
 
         return view('user.posts.create', compact('categories'));
     }
+// ----------------
+    public function show() {
+        $posts = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6)->items();
+        $paginated = DB::table('posts')->where('user_id', '=', auth()->id())->paginate(6);
+        return view('user.posts.show', compact('posts', 'paginated'));
+    }
+// ----------------
+    public function edit(Post $post) {
+        return view('user.posts.edit', compact('post'));
+    }
 
+    // ---------------- метод POST
     public function store(Request $request) {
         $validated = validate($request->all(), [
             'alias' => ['required', 'string', 'max:50'],
@@ -33,8 +47,8 @@ class PostController extends Controller
             'category' => ['required'],
             'photo' => ['nullable', 'file', 'image', 'max:8000'],
         ]);
-        
-        $id = DB::table('posts')->insertGetId([
+
+        DB::table('posts')->insert([
             'user_id' => auth()->id(),
             'alias' => $validated['alias'],
             'description' => $validated['description'],
@@ -42,33 +56,16 @@ class PostController extends Controller
             'category_id' => DB::table('categories')->where('name', $validated['category'])->value('id'),
         ]);
         
-        return redirect()->route('user.posts.show', $id);
-    }
-    
-    public function show($post) {
-        $post = (object) [
-            'id' => '123',
-            'alias' => 'Tommy Cash',
-            'description' => 'Работа по проведению косметических работ с питомцем',
-            'category' => 'Косметика',
-        ];
-
-        $posts = array_fill(0, 6, $post);
-
-        return view('user.posts.show', compact('post'));
+        return redirect()->route('user.posts');
     }
 
-    public function edit($post) {
-        $post = (object) [
-            'id' => '123',
-            'alias' => 'Tommy Cash',
-            'description' => 'Работа по проведению косметических работ с питомцем',
-            'category' => 'Косметика',
-        ];
-
-        return view('user.posts.edit', compact('post'));
+    // ---------------- метод DELETE
+    public function destroy(Post $post) {
+        DB::table('posts')->where('id', '=', $post->id)->delete();
+        return redirect()->back();
     }
 
+    // ---------------- метод PUT
     public function update(Request $request, $post) {
         $validated = validate($request->all(), [
             'alias' => ['required', 'string', 'max:50'],
@@ -77,12 +74,6 @@ class PostController extends Controller
             'photo' => ['nullable', 'file', 'image', 'max:8000'],
         ]);
 
-        dd($validated);
-
         return redirect()->back();
-    }
-    
-    public function delete($post) {
-        return redirect()->route('user.posts');
     }
 }

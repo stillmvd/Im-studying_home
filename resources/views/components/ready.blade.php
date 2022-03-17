@@ -14,4 +14,6 @@
     <x-post.date>
         {{ now()->format('d.M - H:i') }}
     </x-post.date>
+    
+    <x-form.delete :post=$post />
 </x-post.card>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'login' => 'VssLocker',
             'email' => 'asslocker@vk.com',
             'admin' => '1',
-            'password' => 'Admin102938',
+            'password' => Hash::make('Admin102938'),
         ]);
 
         DB::table('posts')->insert([

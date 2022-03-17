@@ -6,7 +6,7 @@
     <x-card.body>
         <x-card.header>
             <x-card.title>
-                {{ __('Удаление заявок') }}
+                {{ __('Ваши заявки') }}
             </x-card.title>
             <div class="right-section">
                 <x-button href="{{ route('user.posts') }}">
@@ -17,7 +17,7 @@
         
         @if (empty($posts))
             <x-card.subtitle>
-                {{ __('Всё удалено :)') }}
+                {{ __('Всё удалено )') }}
             </x-card.subtitle>
     
             @else
@@ -26,11 +26,11 @@
                     <x-ready :post=$post/>
                 @endforeach
             </x-posts-container>
-
-            <div class="pagination">
-                {{ $paginated->links('vendor.pagination.default') }}
-            </div>
         @endif
+
+        <div class="pagination">
+            {{ $posts->links('vendor.pagination.default') }}
+        </div>
 
     </x-card.body>
 

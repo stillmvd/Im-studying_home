@@ -4,7 +4,9 @@
         <x-select name="category_id" class="filter-select" :options="$categories" />
     </div>
     
-    <button class="button" type="submit">
-        {{ __('Применить') }}
-    </button>
+    <div class="right-section">
+        <button class="button" type="submit">
+            {{ __('Применить') }}
+        </button>
+    </div>
 </x-form.base>

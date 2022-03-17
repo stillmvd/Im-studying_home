@@ -10,8 +10,8 @@
             </x-card.title>
             <div class="right-section">
                 @if (! empty($posts))
-                    <x-button href="{{ route('user.posts.create') }}">
-                        {{ __('Редактировать заявки') }}
+                    <x-button href="{{ route('user.posts.delete') }}" class="red-button">
+                        {{ __('Удаление заявок') }}
                     </x-button>
                 @endif
                 <x-button href="{{ route('user.posts.create') }}">
@@ -31,11 +31,11 @@
                     <x-post :post=$post/>
                 @endforeach
             </x-posts-container>
-        @endif
 
-        <div class="pagination">
-            {{ $posts->links('vendor.pagination.default') }}
-        </div>
+            <div class="pagination">
+                {{ $paginated->links('vendor.pagination.default') }}
+            </div>
+        @endif
 
     </x-card.body>
 

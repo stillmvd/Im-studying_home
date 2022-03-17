@@ -1,4 +1,4 @@
-<x-form.base class="form" method="post" action="{{route ('user.posts.store') }}">
+<x-form.base class="form" method="post" action="{{ route('user.posts.store') }}">
     <x-align-container>
         <x-label>{{ __('Кличка вашего питомца') }}</x-label>
         <x-input type="text" name="alias" id="alias" autofocus />

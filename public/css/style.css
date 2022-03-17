@@ -88,8 +88,8 @@ body{
 }
 
 .right-section{
-    width: 50%;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: flex-end;
 }
@@ -259,7 +259,7 @@ main{
     font-weight: lighter;
     color: rgb(0, 0, 0);
     border: solid 1px rgb(173, 173, 173);
-    font-size: calc(20px + 1 * (100vw / 1920));
+    font-size: calc(14px + 2 * (100vw / 1920));
 }
 
 .text-area:focus, .select:focus, .filter-select:focus {
@@ -314,6 +314,7 @@ li{
 
 .post{
     padding: 4%;
+    position: relative;
     border-radius: 12px;
     background-color: rgb(240, 240, 240);
 }
@@ -337,6 +338,12 @@ li{
     white-space: nowrap;
     color: rgb(168, 168, 168);
     font-size: calc(14px + 2 * (100vw / 1920));
+}
+
+.bigsep{
+    width: 70%;
+    opacity: 40%;
+    margin: 3% auto;
 }
 
 .category{
@@ -389,6 +396,35 @@ li{
     background-color: #ffb5b1;
 }
 
+.delete-button{
+    top: 0;
+    right: 0;
+    border: none;
+    padding: 3.5%;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 10px;
+    transition: .1s ease;
+    background-color: #ff352b;
+}
+
+.delete-button:hover{
+    transform: translateY(-5px);
+}
+
+.change-button{
+    border: none;
+    padding: 3.5% 10%;
+    color: white;
+    margin-left: 20%;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 10px;
+    transition: .1s ease;
+    background-color: #98b8ff;
+}
+
 /* --------------- кнопки --------------- */
 
 .form-button{
@@ -399,7 +435,7 @@ li{
     position: absolute;
     border-radius: 12px;
     transition: .2s ease;
-    background-color: #f03d33;
+    background-color: #98b8ff;
     border: solid 1px transparent;
     font-size: calc(14px + 4 * (100vw / 1920));
 }
@@ -412,12 +448,16 @@ li{
 .button{
     border: none;
     color: white;
-    padding: 1% 3%;
     cursor: pointer;
+    padding: 10px 20px;
     border-radius: 12px;
     transition: .2s ease;
-    background-color: #f03d33;
+    background-color: #98b8ff;
     font-size: calc(14px + 4 * (100vw / 1920));
+}
+
+.red-button{
+    background-color: #f03d33;
 }
 
 .card-header .button{
